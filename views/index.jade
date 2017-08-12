@@ -1,0 +1,13 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+  ul
+           li.active
+                        a.active(href='/create')  Create Article
+           li.active
+                        a.active(href='/all')  All Articles
+      each article in articles
+           li.active
+                        a.active(href='/details/#{article.id}')  #{'Title: ' + article.title + ' Views: ' + article.views}

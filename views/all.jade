@@ -1,0 +1,8 @@
+extends layout
+
+block content
+    ul
+        each article in articles
+            li.active
+                a.active(href='/details/#{article.id}')  #{'Title: ' + article.title + ' Date of creation: ' + article.date}
+  script(type="text/javascript").

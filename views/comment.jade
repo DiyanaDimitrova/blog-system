@@ -1,0 +1,12 @@
+extends layout
+
+block content
+    label Comment Text
+    p #{comment.text}
+    br
+    label Date of creation
+    p #{comment.commentDate}
+    br
+    label Submitted by
+    p #{comment.user}
+  script(type="text/javascript").

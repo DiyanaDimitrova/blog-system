@@ -1,0 +1,39 @@
+extends layout
+
+block content
+   p Title: #{item.title}
+   br
+   p Description: #{item.description}
+   br
+   p Date: #{item.date}
+   br
+   label Image:
+   img(src="/images/#{item.image}")
+   br
+   p Views: #{item.views}
+   br
+   div.form-container
+    form.form-container(name="change-state", method="post", action="/details/#{item.id}")
+      div.actions
+      if item.state
+        input(type="submit", value="Delete")
+      if !item.state
+        input(type="submit", value="Undelete")
+   br
+   label All Comments:
+   each com in item.comment
+       p Comment: #{com.text} User: #{com.user}
+   br
+   br
+   br
+   div.form-container
+    form.form-container(name="add-comment", method="post", action="/details/#{item.id}/comment")
+      label Username:
+      input(type="text", name="user")
+      br
+      label Comment:
+      br
+      textarea(name="comment")
+      div.actions
+        input(type="submit", value="Add Comment")
+  script(type="text/javascript").
